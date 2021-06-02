@@ -1,0 +1,33 @@
+base:
+  project : "Customer_Churn_Prediction"
+  random_state: 0
+  target: Churn
+
+data_source:
+  gdrive_source: Original_data/Churn.csv
+
+load_data:
+  raw_data_csv: data/raw/Churn.csv
+
+filter_data:
+  filter_data_csv: data/filtered/Churn.csv
+
+split_data: 
+  train_path: data/processed/CC_train.csv
+  test_path: data/processed/CC_test.csv
+  test_size: 0.2
+
+estimators:
+  RandomForest:
+    Params:
+      n_estimators: 100
+      criterion: 'gini'
+      min_samples_split: 2
+
+model_dir: models
+
+report:
+  params: report/params.json
+  scores: report/scores.json
+
+webapp_model_dir: Prediction/model/model.joblib
