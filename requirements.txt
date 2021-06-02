@@ -1,4 +1,7 @@
+-e .
+
 dvc
 dvc[gdrive]
 sklearn
 pandas
+imblearn
