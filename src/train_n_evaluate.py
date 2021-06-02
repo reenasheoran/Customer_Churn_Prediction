@@ -63,6 +63,8 @@ def train_model(config_path):
     scores_file = config["report"]["scores"]
     with open(scores_file, 'w') as f:
         scores = {"acurracy": accuracy,
+                    "Precision": Precision,
+                    "Recall": Recall,
                     "f1_score": F1_score}
         json.dump(scores, f, indent=4)
 
