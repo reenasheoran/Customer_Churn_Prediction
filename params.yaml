@@ -12,6 +12,9 @@ load_data:
 filter_data:
   filter_data_csv: data/filtered/Churn.csv
 
+select_data:
+  select_data_csv: data/select/Churn.csv
+
 split_data: 
   train_path: data/processed/CC_train.csv
   test_path: data/processed/CC_test.csv
