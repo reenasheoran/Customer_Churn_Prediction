@@ -5,3 +5,5 @@ dvc[gdrive]
 sklearn
 pandas
 imblearn
+flask
+gunicorn

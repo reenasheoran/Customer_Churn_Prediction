@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+FlightFare
+{% endblock title %}
+
+
+{% block custom_css %}
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock custom_css %}
+
+
+{% block body %}
+<!-- nav bar -->
+
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color:dodgerblue;">
+    <a class="navbar-brand" href="/">Customer Churn Predictor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/reenasheoran/Flight_Fare_MLOP">Source-Code</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <!-- nav bar ends -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+h1 {
+	font-family: 'Lucida Console', cursive;
+	font-size: 40px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+h3 {
+	margin: 1em 0 0.5em 0;
+	color: #343434;
+	font-size: 22px;
+	line-height: 40px;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-family: 'Courier New', cursive;
+	letter-spacing: 1px;
+	font-style: italic;
+	text-align: center;
+}
+
+.tab
+{
+    text-align: center;
+    border: 3px solid green;
+
+}
+.showTable{
+overflow: auto;
+}
+
+
+    </style>
+</head>
+
+<h1> RANDOMFOREST MODEL OUTCOME </h1>
+<br><br>
+<div class="tab">
+<b><h3>Customer Details : </b> <br> </h3>
+{% for table in tables %}
+    <div class="showTable">{{ table|safe }}</div>
+{% endfor %}
+</div>
+        
+<b class="prediction"> <h3>
+    <b>This customer has the probability of churn as  <b>{{ prob}} </b>
+    <b>Hence this customer will <u> <b>{{ result}} </u></b>
+
+   </u></h3></b>
+
+</div>
+{% endblock body %}
