@@ -1,0 +1,84 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/get_data.py --config=params.yaml
+    deps:
+    - path: Original_data/Churn.csv
+      md5: 3b0bfab28a8101b4e4fdd08025a5c235
+      size: 977501
+    - path: src/get_data.py
+      md5: 374777b217c7c1c4e474c4e0f2329084
+      size: 719
+    outs:
+    - path: data/raw/Churn.csv
+      md5: 8cac3095fcf1fdc5d276164ba877e721
+      size: 978285
+  filter_data:
+    cmd: python src/feature_engineering.py --config=params.yaml
+    deps:
+    - path: data/raw/Churn.csv
+      md5: 8cac3095fcf1fdc5d276164ba877e721
+      size: 978285
+    - path: src/feature_engineering.py
+      md5: b73c0f963e1d91c49ef36f645a0305cf
+      size: 1702
+    outs:
+    - path: data/filtered/Churn.csv
+      md5: 0aa0884e006001c2d4506f0b71ae2afe
+      size: 565288
+  select_data:
+    cmd: python src/feature_selection.py --config=params.yaml
+    deps:
+    - path: data/filtered/Churn.csv
+      md5: 0aa0884e006001c2d4506f0b71ae2afe
+      size: 565288
+    - path: src/feature_selection.py
+      md5: 2d7cfb5e42d77d2dadb9a55d22a31db1
+      size: 660
+    outs:
+    - path: data/select/Churn.csv
+      md5: 119f32ffac4b311b7aca39083eefb4e3
+      size: 487925
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/select/Churn.csv
+      md5: 119f32ffac4b311b7aca39083eefb4e3
+      size: 487925
+    - path: src/split_data.py
+      md5: 9b50170b0a71eda258087ab16c111aca
+      size: 975
+    outs:
+    - path: data/processed/CC_test.csv
+      md5: 56d7796869ad8c5ebb8c8d207aa9114e
+      size: 97963
+    - path: data/processed/CC_train.csv
+      md5: 29d324070c8c400a1891ed404c78052b
+      size: 390436
+  model_train_evaluate:
+    cmd: python src/train_n_evaluate.py --config=params.yaml
+    deps:
+    - path: data/processed/CC_test.csv
+      md5: 56d7796869ad8c5ebb8c8d207aa9114e
+      size: 97963
+    - path: data/processed/CC_train.csv
+      md5: 29d324070c8c400a1891ed404c78052b
+      size: 390436
+    - path: src/train_n_evaluate.py
+      md5: 202f9a3371088e8070eec1172b5201df
+      size: 3251
+    params:
+      params.yaml:
+        estimators.RandomForest.Params.criterion: gini
+        estimators.RandomForest.Params.min_samples_split: 2
+        estimators.RandomForest.Params.n_estimators: 100
+    outs:
+    - path: models/model.joblib
+      md5: e85668967ca6a4ab549176a4e38b5cf5
+      size: 5430776
+    - path: report/params.json
+      md5: 854ded9b531521306a9710d9c2f90def
+      size: 84
+    - path: report/scores.json
+      md5: c193b983e6db7475dd9f2db21b18f23d
+      size: 53

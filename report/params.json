@@ -1,0 +1,5 @@
+{
+    "n_estiamtors": 100,
+    "criterion": "gini",
+    "min_samples_split": 2
+}
