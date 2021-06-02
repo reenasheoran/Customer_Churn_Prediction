@@ -12,7 +12,8 @@ def get_data(config_path):
     config = read_params(config_path)
     data_path = config["data_source"]["gdrive_source"]
     df = pd.read_csv(data_path, sep=',', encoding='utf-8')
-    return df
+    raw_data_path = config["load_data"]["raw_data_csv"]
+    df.to_csv(raw_data_path, sep=',', index=False, encoding='utf-8')
 
 if __name__ == "__main__":
     args = argparse.ArgumentParser()
