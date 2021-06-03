@@ -36,7 +36,7 @@ def feature_eng(config_path):
 
     scale_cols= ['tenure','MonthlyCharges','TotalCharges']
     MM=MinMaxScaler()
-    dfnew[scale_cols] = np.round(MM.fit_transform(dfnew[scale_cols]),4)
+    dfnew[scale_cols] = MM.fit_transform(dfnew[scale_cols])
     
     filter_data_path=config["filter_data"]["filter_data_csv"]
     dfnew.to_csv(filter_data_path,sep=',',encoding='utf-8',header=True,index=False)

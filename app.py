@@ -11,22 +11,26 @@ params_path= "params.yaml"
 static_dir = os.path.join(webapp_root, "static")
 template_dir = os.path.join(webapp_root, "templates")
 
-app = Flask(__name__, static_folder=static_dir,template_folder=template_dir)
+app = Flask(__name__ , static_folder=static_dir,template_folder=template_dir)
 
 def read_params(params_path):
     with open(params_path) as yaml_file:
         config=yaml.safe_load(yaml_file)
     return config
 
-def predict(data):
+def LRpredict(data):
     config = read_params(params_path)
     model_dir_path = config["webapp_model_dir"]
     model = joblib.load(model_dir_path)
-    prediction = model.predict(data)
-    prob = model.predict_proba(data)
+    #prediction = model.predict(np.asarray(data).astype('float32'))
+    prob = model.predict_proba(np.asarray(data).astype('float32'))
     Churnprob = prob[:,1]
-    print(prediction)
-    return prediction[0], Churnprob[0]
+    if Churnprob >= 0.25:
+            response = 'Churn'
+    else:
+            response = 'Not churn'
+    
+    return response
 
 @app.route('/', methods=['GET','POST'])
 def home():
@@ -180,17 +184,11 @@ def home():
                'PaymentMethod_Electronic check'       : Electronic_check,     
                'PaymentMethod_Mailed check': Mailed_check
                         }])
-        (response, Churnprob) = predict(np.asarray(data).astype('float32'))
-       
-    
-        if response > 0.5:
-            response = 'Churn'
-        else:
-            response = 'Not churn'
-      
-        #prob = model.predict_proba(data)
-        #Churnprob = prob[:,1]
-        return render_template('result.html', tables = [data.to_html(classes='data', header=True)],result = response, prob=Churnprob)
+        
+        response = LRpredict(data)
+        print(response)
+        
+        return render_template('result.html', tables = [data.to_html(classes='data', header=True)],result = response)
      else:
         return render_template("index.html")
 

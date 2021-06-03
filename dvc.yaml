@@ -39,9 +39,9 @@ stages:
     - data/processed/CC_test.csv
     - src/train_n_evaluate.py
     params:
-    - estimators.RandomForest.Params.n_estimators
-    - estimators.RandomForest.Params.criterion
-    - estimators.RandomForest.Params.min_samples_split
+    - estimators.Logistic.Params.max_iter
+    - estimators.Logistic.Params.penalty
+    - estimators.Logistic.Params.class_weight
     metrics:
     - report/scores.json:
         cache: false

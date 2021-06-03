@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-FlightFare
+CustomerChurn
 {% endblock title %}
 
 
@@ -14,7 +14,7 @@ FlightFare
 {% block body %}
 <!-- nav bar -->
 
-<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color:dodgerblue;">
+<nav class="navbar navbar-expand-lg navbar-light shadow fixed-top" style="background-color:indigo">
     <a class="navbar-brand" href="/">Customer Churn Predictor</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +26,7 @@ FlightFare
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/reenasheoran/Flight_Fare_MLOP">Source-Code</a>
+                <a class="nav-link" href="https://github.com/reenasheoran/Customer_Churn_Prediction">Source-Code</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,10 @@ FlightFare
     <div class="container-fluid masthead">
         
         <br>
-      <center> <div class="container">
+        <br>
+        <br>
+        <br>
+      <left> <div class="container">
             <div class="row">
                 <div class="col">
                     <form method="POST">
@@ -45,248 +48,141 @@ FlightFare
                         <div class="form-group">
                             <label for="translation">
                                 <div style="color:black">
-                                    <h5><center><i>Enter customer Details</i></center></h5>
-                                   <center><div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Gender</h5>
-                                                    <select name="Gender" id="Gender" required="required">
+                                    <h3><center><i>Enter customer Details</i></center></h3>
+                                    <br>
+                                    <br>
+                                        
+                                   <div class="row-sm-12">
+                                        <div class="col-sm-12">
+                                               <h5>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="Gender" id="Gender" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Female">Female</option>
                                                         <option value="Male">Male</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <br>
-                                        
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Senior Citizen</h5>
-                                                    <select name="SeniorCitizen" id="SeniorCitizen" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Senior Citizen &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="SeniorCitizen" id="SeniorCitizen" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Partner</h5>
-                                                    <select name="Partner" id="Partner" required="required">
+                                        <div class="col-sm-12">
+                                            
+                                                    <h5>Partner &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="Partner" id="Partner" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                    </div>
-                        
-                                    <br>
-                                   
-                        
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                   <h5 class="card-title">Dependents</h5>
-                                                    <select name="Dependents" id="Dependents" required="required">
+                                        <div class="col-sm-12">
+                                                   <h5>Dependents  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="Dependents" id="Dependents" required="required">
+                                                    <option value="">--Select--</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select></h5>
+                                        </div>
+                                        <div class="col-sm-12">
+                                                    <h5>Phone Service &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="PhoneService" id="PhoneService" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Phone Service</h5>
-                                                    <select name="PhoneService" id="PhoneService" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Multiple Lines &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="MultipleLines" id="MultipleLines" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                    </div>
-                        
-                        
-                        
-                                    <br>
-                                    
-                        
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Multiple Lines</h5>
-                                                    <select name="MultipleLines" id="MultipleLines" required="required">
-                                                        <option value="">--Select--</option>
-                                                        <option value="Yes">Yes</option>
-                                                        <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Internet Service</h5>
-                                                    <select name="InternetService" id="InternetService" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Internet Service &nbsp;&nbsp; <select name="InternetService" id="InternetService" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="No">None</option>
                                                         <option value="DSL">DSL</option>
                                                         <option value="Fiber Optic">Fiber Optic</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Online Security</h5>
-                                                    <select name="OnlineSecurity" id="OnlineSecurity" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Online Security &nbsp;&nbsp;&nbsp;&nbsp; <select name="OnlineSecurity" id="OnlineSecurity" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                         <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Online Backup</h5>
-                                                    <select name="OnlineBackup" id="OnlineBackup" required="required">
+                                         <div class="col-sm-12">
+                                                    <h5>Online Backup &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="OnlineBackup" id="OnlineBackup" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>  
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Device Protection</h5>
-                                                    <select name="DeviceProtection" id="DeviceProtection" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Device Protection <select name="DeviceProtection" id="DeviceProtection" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div> 
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Tech Support</h5>
-                                                    <select name="TechSupport" id="TechSupport" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Tech Support  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="TechSupport" id="TechSupport" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Streaming TV</h5>
-                                                    <select name="StreamingTV" id="StreamingTV" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Streaming TV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="StreamingTV" id="StreamingTV" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Streaming Movies</h5>
-                                                    <select name="StreamingMovies" id="StreamingMovies" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Streaming Movies&nbsp; <select name="StreamingMovies" id="StreamingMovies" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Contract</h5>
-                                                    <select name="Contract" id="Contract" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Contract &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select name="Contract" id="Contract" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Month-to-month">Monthly</option>
                                                         <option value="One year">One Year</option>
                                                         <option value="Two year">Two Year</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                         <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Paperless Billing</h5>
-                                                    <select name="PaperlessBilling" id="PaperlessBilling" required="required">
+                                         <div class="col-sm-12">
+                                                    <h5>Paperless Billing &nbsp;&nbsp; <select name="PaperlessBilling" id="PaperlessBilling" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Yes">Yes</option>
                                                         <option value="No">No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Payment Method</h5>
-                                                    <select name="PaymentMethod" id="PaymentMethod" required="required">
+                                        <div class="col-sm-12">
+                                                    <h5>Payment Method &nbsp;&nbsp; <select name="PaymentMethod" id="PaymentMethod" required="required">
                                                         <option value="">--Select--</option>
                                                         <option value="Electronic check">Electronic check</option>
                                                         <option value="Mailed check">Mailed check</option>
                                                         <option value="Bank transfer (automatic)">Bank transfer (automatic)</option>
                                                         <option value="Credit card (automatic)">Credit card (automatic)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                                    </select></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Tenure</h5>
-                                                    <input type="text" name="Tenure" id="Tenure" required="required">
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-12">
+                                                    <h5>Tenure &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="Tenure" id="Tenure" required="required"></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Monthly Charges</h5>
-                                                    <input type="text" name="MonthlyCharges" id="MonthlyCharges" required="required">
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-12">
+                                                    <h5>Monthly Charges &nbsp;&nbsp;&nbsp; <input type="text" name="MonthlyCharges" id="MonthlyCharges" required="required"></h5>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Total Charges</h5>
-                                                    <input type="text" name="TotalCharges" id="TotalCharges" required="required">
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-12">
+                                                    <h5>Total Charges &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="TotalCharges" id="TotalCharges" required="required"></h5>
                                         </div>
                                         
                 </div>
                
-     </div></center>
+     </div>
                 
                 <div class="form-group">
                 
@@ -295,7 +191,7 @@ FlightFare
                 
     
 </form>
-</div></center>
+</div></left>
 
            
             <center><h3><p style="color:black">{{ prediction_text }}</p></h3></center>
@@ -311,8 +207,9 @@ FlightFare
             body {
                 padding: 0px;
                 font-family: Arial black, Charcoal, sans-serif;
-                background: url("") no-repeat center fixed; 
-                background-size: cover;
+                background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDqX80mASVLd5_b8QR9S2M_iaQTg6XeJOoXQ&usqp=CAU") no-repeat center fixed; 
+                background-size:cover;
+                background-color: black;
             }
     
             #Source {
@@ -381,6 +278,14 @@ FlightFare
             #sub:hover {
                 background-color: #7CE765;
             }
+            select {
+        width: 500px;
+        margin: 10px;
+    }
+    select:focus {
+        min-width: 500px;
+        width: 500px;
+    }
     
         </style>
        

@@ -1,5 +1,5 @@
 {
-    "n_estiamtors": 100,
-    "criterion": "gini",
-    "min_samples_split": 2
+    "max_iter": 100,
+    "penalty": "l2",
+    "class_weight": "dict"
 }

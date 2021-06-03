@@ -1,6 +1,6 @@
 base:
   project : "Customer_Churn_Prediction"
-  random_state: 0
+  random_state: 42
   target: Churn
 
 data_source:
@@ -21,11 +21,11 @@ split_data:
   test_size: 0.2
 
 estimators:
-  RandomForest:
+  Logistic:
     Params:
-      n_estimators: 100
-      criterion: 'gini'
-      min_samples_split: 2
+      max_iter: 100
+      class_weight: 'dict'
+      penalty: 'l2'
 
 model_dir: models
 

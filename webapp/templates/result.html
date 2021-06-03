@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-FlightFare
+CustomerChurn
 {% endblock title %}
 
 
@@ -26,7 +26,7 @@ FlightFare
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/reenasheoran/Flight_Fare_MLOP">Source-Code</a>
+                <a class="nav-link" href="https://github.com/reenasheoran/Customer_Churn_Prediction">Source-Code</a>
             </li>
         </ul>
     </div>
@@ -71,8 +71,11 @@ overflow: auto;
 
     </style>
 </head>
-
-<h1> RANDOMFOREST MODEL OUTCOME </h1>
+<br>
+<br>
+<br>
+<br>
+<h1> LOGISTICREGRESSION MODEL OUTCOME </h1>
 <br><br>
 <div class="tab">
 <b><h3>Customer Details : </b> <br> </h3>
@@ -82,8 +85,8 @@ overflow: auto;
 </div>
         
 <b class="prediction"> <h3>
-    <b>This customer has the probability of churn as  <b>{{ prob}} </b>
-    <b>Hence this customer will <u> <b>{{ result}} </u></b>
+    
+    <b>This customer will <u> <b>{{ result}} </u></b>
 
    </u></h3></b>
 
