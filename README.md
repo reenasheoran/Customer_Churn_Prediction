@@ -29,6 +29,7 @@ Original data size was 7043 rows and 21 columns.
 3. All the columns that are containing only 2 values "Yes" and "No" are converted to int, where 1 represents "Yes" and 0 represents "No".<br>
 4. Similarly, gender column is also converted to int, where 1 represents "Male" and 0 represents "Female".<br>
 5. The columns with multiple categories (InternetService, Contract, PaymentMethod) were converted to dummy variables.<br>
+6. The coulmns tenure, MonthlyCharges and TotalCharges were scaled using MinmaxScalar.
 
 After data cleaning the size of data was 7032 rows and 28 columns.<br>
 ## EDA
@@ -42,6 +43,7 @@ I looked at the distributions of the data. Below are few highlights from EDA sec
 ## Data Balancing
 The data was imbalanced as shown in figure below.<br>
 ![imb](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/imb.png)<br>
+The data was balanced using SMOTEENN.
 ## Model Bulding
 For building the model, I first splitted the data into train and test set in 80:20 ratio respectively. Then I tried following models: -<br>
 1. Logistic Regression<br>
