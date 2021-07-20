@@ -1,7 +1,7 @@
 # Customer Churn Predictor
 It is a machine learning project that predicts whether the customer will churn or not.
 ## Project Overview
-It is a Flask-based Web Application hosted on the AWS EC2 platform that Predicts whether the customer will churn or not using Logistic Regression (MAE ~ INR 1116.12).
+It is a Flask-based Web Application hosted on the AWS EC2 platform that Predicts whether the customer will churn or not using Logistic Regression (F-score: 86%).
 ## Installation
 This project is developed using python 3.7. If you are using any lower version of python then I recommend you to upgrade your python to the latest version by using pip command. Follow the steps below to run this project locally.
 ```
@@ -11,46 +11,34 @@ pip install -r requirements.txt
 python app.py
 ```
 ## Motivation
-In MBA, I learned that the success of every business is directly/indirectly dependent upon the type and number of customers the company has. **Customer churn**, also known as customer attrition, occurs when customers stop doing business with a company. A high customer churn rate indicates that the company is losing its customers rapidly. This churn can be because of myriad reasons, and it is the company that needs to discover these reasons via patterns and trends present in customer data. 
-All companies are interested in identifying segments of these customers because the price for acquiring a new customer is usually higher than retaining the old one. For example, if Netflix knows a segment of customers who are at risk of churning, the company could proactively engage them with special offers instead of simply losing them.
+In MBA, I learned that the success of every business is directly/indirectly dependent upon the type and number of customers the company has. **Customer churn**, also known as customer attrition, occurs when customers stop doing business with a company. A high customer churn rate indicates that the company is losing its customers rapidly. This churn can be because of myriad reasons, and it is the company that needs to discover these reasons via patterns and trends present in customer data. All companies are interested in identifying segments of these customers because the price for acquiring a new customer is usually higher than retaining the old one. For example, if Netflix knows a segment of customers who are at risk of churning, the company could proactively engage them with special offers instead of simply losing them.
 ## Problem Statement
 The goal of this project is to create a web app that could help the companies to accurately predict which customers are most likely to churn so that the company could proactively engage them with special offers and retain business with them.
-## Demo
-
-
-
 ## Data Collection
-The dataset has been taken from kaggle https://www.kaggle.com/nikhilmittal/flight-fare-prediction-mh?select=Data_Train.xlsx. It contains the data about prices of flight tickets for various airlines and between various cities for the period between the months of March and June of 2019. Here is the details about data:-
+The dataset has been taken from kaggle https://www.kaggle.com/blastchar/telco-customer-churn. It contains the data about telco customers where each row represents a customer, each column contains customer’s attributes.<br><br>
+The data set includes information about:<br>
+1. Customers who left within the last month – the column is called Churn <br>
+2. Services that each customer has signed up for – phone, multiple lines, internet, online security, online backup, device protection, tech support, and streaming TV and movies<br>
+3. Customer account information – how long they’ve been a customer, contract, payment method, paperless billing, monthly charges, and total charges<br>
+4. Demographic info about customers – gender, age range, and if they have partners and dependents<br>
 
-Size of training set: 10683 records<br>
-Size of test set: 2671 records
-
-**FEATURES**: <br>
-Airline: The name of the airline.<br>
-Date_of_Journey: The date of the journey.<br>
-Source: The source from which the service begins.<br>
-Destination: The destination where the service ends.<br>
-Route: The route taken by the flight to reach the destination.<br>
-Dep_Time: The time when the journey starts from the source.<br>
-Arrival_Time: Time of arrival at the destination.<br>
-Duration: Total duration of the flight.<br>
-Total_Stops: Total stops between the source and destination.<br>
-Additional_Info: Additional information about the flight.<br>
-Price: The price of the ticket.<br>
-## Data Cleaning
-Fortunately, there were only 2 missing values that too in the same row. Therefore, I dropped the row with NA values. 
+Original data size was 7043 rows and 21 columns.
 ## Feature Engineering
-Then, I did feature engineering as follows: - <br>
--Converted column 'Date_of_Journey' from categorical to datetime dtype. Since all data is from same year, I am just extracted day and month from "Date_of_journey"<br>
--Extracted hours and minutes form "Dep_Time" <br>
--Extracted hour and minute from "Arrival_Time" <br>
--Extracted hour and minute from "Duration"<br>
--Applied one-hot encoding on categorical data such as total_stops, airline, source and destination features.<br>
+1. Feature "TotalCharges" was of object datatype, I converted it to numerical. As a result of this operation, 11 values resulted into null that I dropped from the original data.<br>
+2. The data contains the values "No internet service" and "No phone service". Both of these values were converted into "No" in the data.<br>
+3. All the columns that are containing only 2 values "Yes" and "No" are converted to int, where 1 represents "Yes" and 0 represents "No".<br>
+4. Similarly, gender column is also converted to int, where 1 represents "Male" and 0 represents "Female".<br>
+5. The columns with multiple categories (InternetService, Contract, PaymentMethod) were converted to dummy variables.<br>
+
+After data cleaning the size of data was 7032 rows and 28 columns.<br>
 ## EDA
-I looked at the distributions of the data and the prices of various airlines based on stoppages, source, destination, etc. Below are few highlights from EDA section.
+I looked at the distributions of the data. Below are few highlights from EDA section.
 ![EDA1](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/4.png)
 ![EDA2](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/5.png)
 ![EDA3](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/6.png)
+![EDA4]
+![EDA5]
+![EDA6]
 ## Model Building
 For building the model, I first splitted the data into train and test set in 80:20 ratio respectively. Then I tried following models: -<br>
 
