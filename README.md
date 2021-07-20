@@ -5,7 +5,7 @@ It is a Flask-based Web Application hosted on the AWS EC2 platform that Predicts
 ## Installation
 This project is developed using python 3.7. If you are using any lower version of python then I recommend you to upgrade your python to the latest version by using pip command. Follow the steps below to run this project locally.
 ```
-git clone https://github.com/reenasheoran/Customer_Chirn_Prediction.git
+git clone https://github.com/reenasheoran/Customer_Churn_Prediction.git
 cd Customer_Churn_Prediction-main
 pip install -r requirements.txt
 python app.py
@@ -33,12 +33,12 @@ Original data size was 7043 rows and 21 columns.
 After data cleaning the size of data was 7032 rows and 28 columns.<br>
 ## EDA
 I looked at the distributions of the data. Below are few highlights from EDA section.
-![EDA1](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/4.png)
-![EDA2](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/5.png)
-![EDA3](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/6.png)
-![EDA4]
-![EDA5]
-![EDA6]
+![EDA1](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda.png)
+![EDA2](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda4.png)
+![EDA3](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda1.png)
+![EDA4](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda2.png)
+![EDA5](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda3.png)
+![EDA6](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/corr.png)
 ## Model Building
 For building the model, I first splitted the data into train and test set in 80:20 ratio respectively. Then I tried following models: -<br>
 
