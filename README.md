@@ -33,29 +33,33 @@ Original data size was 7043 rows and 21 columns.
 After data cleaning the size of data was 7032 rows and 28 columns.<br>
 ## EDA
 I looked at the distributions of the data. Below are few highlights from EDA section.
-![EDA1](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda.png)
-![EDA2](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda4.png)
-![EDA3](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda1.png)
-![EDA4](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda2.png)
-![EDA5](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda3.png)
-![EDA6](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/corr.png)
-## Model Building
+![EDA1](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda.png)<br>
+![EDA2](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda4.png)<br>
+![EDA3](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda1.png)<br>
+![EDA4](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda2.png)<br>
+![EDA5](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/eda3.png)<br>
+![EDA6](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/corr.png)<br>
+## Data Balancing
+The data was imbalanced as shown in figure below.<br>
+![imb](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/imb.png)<br>
+## Model Bulding
 For building the model, I first splitted the data into train and test set in 80:20 ratio respectively. Then I tried following models: -<br>
-
+1. Logistic Regression<br>
+2. K Nearest Neighbors<br>
+3. Support Vector Machine<br>
+4. Random Forest<br>
+5. Naive Bayes<br> 
 ## Models Evaluation and Performance Metrics
-For evaluating the model I recorded Prediction R2 Score, Mean Absolute Error(MAE), Root Mean Squared Error(RMSE). For making the final decision I considered two metrics, Prediction R2 Score and Mean Absolute Error as these two metrics shows how good the model is on unknown data. Following is the performance table: - <br>
-Model|R2 Score(Prediction)|MAE|RMSE
+For evaluating the model I recorded accuracy, F-score(Churn), F-score(Not Churn). For making the final decision I considered F-score (Churn) metrics, as the data was imbalanced so rather than accuracy F-score should be considered.Further, our concern is for Churn class only, therefore, I considered F-score(churn) over F-score(Not Churn). Following is the performance table: - <br>
+Model|accuracy|F-score(Churn)|F-score(Not Churn)
 ---|---|---|---
-Linear Regression|0.6|1995.507|2936.755
-Ridge Regression|0.599|2001.359|2942.245
-Lasso Regression|0.599|1997.585|2939.402
-ExtraTrees Regressor|0.806|1225.559|2047.61
-RandomForest Regressor|0.794|1182.154|2109.848
-LightGBM Regressor|0.823|1247.141|1955.4
-XGBoost Regressor|0.844|1140.601|1834.37
-CatBoost Regressor|0.865|1116.122|1704.965
+Logistic Regression|0.794598|0.86|0.61
+K Nearest Neighbors|0.749822|0.83|0.55
+Support Vector Machine|0.778962|0.85|0.57
+Random Forest|0.776830|0.85|0.56
+Naive Bayes|0.749112|0.80|0.65
 
-Since CatBoost Regressor has the highest R2 score with minimum MAE score. This model is finalized for production.
+Since Logistic Regression has the highest F-score(Churn). This model is finalized for production.
 ## Productionization and Deployment
 At this step, I built a flask based web app that is hosted on heroku platform https://flight-fare-predictor-mlop.herokuapp.com/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted price of the flight ticket.
 ## Screen Shots
