@@ -1,7 +1,7 @@
 # Customer Churn Predictor
 It is a machine learning project that predicts whether the customer will churn or not.
 ## Project Overview
-It is a Flask-based Web Application hosted on the AWS EC2 platform that Predicts whether the customer will churn or not using Logistic Regression (F-score: 86%).
+It is a Flask-based Web Application hosted on the AWS EC2 http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ instance that Predicts whether the customer will churn or not using Logistic Regression (F-score: 86%).
 ## Installation
 This project is developed using python 3.7. If you are using any lower version of python then I recommend you to upgrade your python to the latest version by using pip command. Follow the steps below to run this project locally.
 ```
@@ -61,7 +61,7 @@ Naive Bayes|0.749112|0.80|0.65
 
 Since Logistic Regression has the highest F-score(Churn). This model is finalized for production.
 ## Productionization and Deployment
-At this step, I built a flask based web app that is hosted on heroku platform https://flight-fare-predictor-mlop.herokuapp.com/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted price of the flight ticket.
+At this step, I built a flask based web app that is hosted on AWS EC2 instance http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted price of the flight ticket.
 ## Screen Shots
 ![Home Page](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/1.png)
 ![Fill Entries](https://github.com/reenasheoran/Flight_Fare_MLOP/blob/main/static/2.png)
