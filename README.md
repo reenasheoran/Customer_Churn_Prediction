@@ -1,7 +1,7 @@
 # Customer Churn Predictor
 It is a machine learning project that predicts whether the customer will churn or not.
 ## Project Overview
-It is a Flask-based Web Application hosted on the AWS EC2 http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ instance that Predicts whether the customer will churn or not using Logistic Regression (F-score: 86%).
+It is a Flask-based Web Application hosted on the AWS EC2 http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ instance that predicts whether the customer will churn or not using Logistic Regression (F-score: 86%).
 ## Installation
 This project is developed using python 3.7. If you are using any lower version of python then I recommend you to upgrade your python to the latest version by using pip command. Follow the steps below to run this project locally.
 ```
@@ -52,7 +52,7 @@ For building the model, I first splitted the data into train and test set in 80:
 4. Random Forest<br>
 5. Naive Bayes<br> 
 ## Models Evaluation and Performance Metrics
-For evaluating the model I recorded accuracy, F-score(Churn), F-score(Not Churn). For making the final decision I considered F-score (Churn) metrics, as the data was imbalanced so rather than accuracy F-score should be considered.Further, our concern is for Churn class only, therefore, I considered F-score(churn) over F-score(Not Churn). Following is the performance table: - <br>
+For evaluating the model I recorded accuracy, F-score(Churn), F-score(Not Churn). For making the final decision I considered F-score (Churn) metrics, as the data was imbalanced so rather than accuracy F-score should be considered.Further, our concern was for Churn class only, therefore, I considered F-score(churn) over F-score(Not Churn). Following is the performance table: - <br>
 Model|accuracy|F-score(Churn)|F-score(Not Churn)
 ---|---|---|---
 Logistic Regression|0.794598|0.86|0.61
@@ -63,7 +63,7 @@ Naive Bayes|0.749112|0.80|0.65
 
 Since Logistic Regression has the highest F-score(Churn). This model is finalized for production.
 ## Productionization and Deployment
-At this step, I built a flask based web app that is hosted on AWS EC2 instance http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted price of the flight ticket.
+At this step, I built a flask based web app that is hosted on AWS EC2 instance http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted result.
 ## Screen Shots
 ![Home Page](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/1.png)<br>
 ![Fill Entries](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/2.png)<br>
