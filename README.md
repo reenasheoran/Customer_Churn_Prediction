@@ -63,8 +63,8 @@ Since Logistic Regression has the highest F-score(Churn). This model is finalize
 ## Productionization and Deployment
 At this step, I built a flask based web app that is hosted on AWS EC2 instance http://ec2-3-143-22-251.us-east-2.compute.amazonaws.com:8080/ . The API endpoint takes in a request with a list of values entered by the app user and returns the predicted price of the flight ticket.
 ## Screen Shots
-![Home Page](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/1.jpg)<br>
-![Fill Entries](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/2.jpg)
-![Prediction](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/3.jpg)
+![Home Page](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/1.png)<br>
+![Fill Entries](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/2.png)<br>
+![Prediction](https://github.com/reenasheoran/Customer_Churn_Prediction/blob/main/images/3.png)<br>
 
 
